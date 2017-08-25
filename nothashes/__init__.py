@@ -4,7 +4,7 @@ from zlib import adler32 as _adler32
 from copy import deepcopy
 from sys import byteorder
 
-__version__ = "0.0.1"
+__version__ = "1.0.0"
 
 
 class hashwrap(metaclass=ABCMeta):
