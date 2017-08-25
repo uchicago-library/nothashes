@@ -7,6 +7,7 @@ def readme():
 
 setup(
     name = 'nothashes',
+    version="0.0.1",
     description = 'Wrapper classes provided hashlib like behavior for ' + \
     'zlib.crc32 and zlib.alder32',
     long_description = readme(),

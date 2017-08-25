@@ -1,8 +1,10 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
 from zlib import crc32 as _crc32
 from zlib import adler32 as _adler32
 from copy import deepcopy
 from sys import byteorder
+
+__version__ = "0.0.1"
 
 
 class hashwrap(metaclass=ABCMeta):
@@ -27,7 +29,7 @@ class hashwrap(metaclass=ABCMeta):
         * hashable (bytes/bytes iter): A thing to "hash"
 
         """
-        self._checksum = None
+        self.checksum = None
         self._inner_func = inner_func
         if hashable:
             self.update(hashable)
@@ -59,76 +61,20 @@ class hashwrap(metaclass=ABCMeta):
     def copy(self):
         return deepcopy(self)
 
-    def get_checksum(self):
-        return self._checksum
-
-    def set_checksum(self, x):
-        self._checksum = x
-
-    def get_digest_size(self):
-        raise NotImplementedError()
-
-    def get_block_size(self):
-        raise NotImplementedError()
-
-    def get_name(self):
-        # Note: This isn't a suitable parameter to hashlib.hash.new(), because
-        # hashlib has no idea about this module
-        raise NotImplementedError()
-
-    @property
-    def checksum(self):
-        return self._checksum
-
-    @checksum.setter
-    def checksum(self, x):
-        self._checksum = x
-
-    @property
-    @abstractmethod
-    def digest_size(self):
-        pass
-
-    @property
-    @abstractmethod
-    def block_size(self):
-        pass
-
-    @property
-    @abstractmethod
-    def name(self):
-        pass
-
 
 class crc32(hashwrap):
+    digest_size = 4
+    block_size = 4
+    name = "crc32"
+
     def __init__(self, hashable=None):
         super().__init__(_crc32, hashable)
 
-    @property
-    def digest_size(self):
-        return 4
-
-    @property
-    def block_size(self):
-        return 4
-
-    @property
-    def name(self):
-        return "crc32"
-
 
 class adler32(hashwrap):
+    digest_size = 4
+    block_size = 4
+    name = "adler32"
+
     def __init__(self, hashable=None):
         super().__init__(_adler32, hashable)
-
-    @property
-    def digest_size(self):
-        return 4
-
-    @property
-    def block_size(self):
-        return 4
-
-    @property
-    def name(self):
-        return "adler32"

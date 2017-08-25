@@ -1,5 +1,10 @@
+# nothashes
+
 Wrapper classes for zlib.crc32 and zlib.alder32 that make them behave like hashlib classes.
 
+v0.0.1
+
+# Usage Example
 ```python
 >>> from nothashes import crc32, adler32
 >>> crcer = crc32()
@@ -17,10 +22,6 @@ b'\x9a\xe0\xda\xaf'
 >>> crcer_again.hexdigest()
 '2598427311'
 >>> adlerer = adler32()
->>> adler.update(b'1234')
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'adler' is not defined
 >>> adlerer.update(b'1234')
 >>> adlerer.digest()
 b'\x01\xf8\x00\xcb'
