@@ -1,6 +1,6 @@
 # nothashes
 
-v1.0.1
+v1.0.2
 
 [![Build Status](https://travis-ci.org/bnbalsamo/nothashes.svg?branch=master)](https://travis-ci.org/bnbalsamo/nothashes) [![Coverage Status](https://coveralls.io/repos/github/bnbalsamo/nothashes/badge.svg?branch=master)](https://coveralls.io/github/bnbalsamo/nothashes?branch=master)
 
