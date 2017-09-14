@@ -1,9 +1,15 @@
+"""
+nothashes
+"""
+
 from abc import ABCMeta
 from zlib import crc32 as _crc32
 from zlib import adler32 as _adler32
 from copy import deepcopy
 from sys import byteorder
 
+__author__ = "Brian Balsamo"
+__email__ = "brian@brianbalsamo.com"
 __version__ = "1.0.0"
 
 
@@ -15,6 +21,7 @@ class hashwrap(metaclass=ABCMeta):
     representation as well, in the checksum property, rather than bothering
     with constant conversions between bytes, ints, and strs.
     """
+
     def __init__(self, inner_func, hashable=None):
         """
         Create a new instance of the wrapping class

@@ -3,6 +3,7 @@ from os import urandom
 from zlib import crc32 as zlib_crc32
 from zlib import adler32 as zlib_adler32
 
+import nothashes
 from nothashes import crc32, adler32
 
 
@@ -39,6 +40,10 @@ class RandomizedTests(unittest.TestCase):
 
 
 class InterfaceTests(unittest.TestCase):
+    def testVersionAvailable(self):
+        x = getattr(nothashes, "__version__", None)
+        self.assertTrue(x is not None)
+
     def testInterface(self):
         impls = [adler32, crc32]
         for x in impls:
