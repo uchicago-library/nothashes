@@ -10,7 +10,7 @@ setup(
     name="nothashes",
     description="Wrapper classes for zlib.crc32 and zlib.alder32 " +
     "that make them behave like hashlib classes.",
-    version="1.0.2",
+    version="1.0.3",
     long_description=readme(),
     author="Brian Balsamo",
     author_email="brian@brianbalsamo.com",
