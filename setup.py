@@ -19,7 +19,7 @@ setup(
         ]
     ),
     include_package_data=True,
-    url='https://github.com/bnbalsamo/nothashes',
+    url='https://github.com/uchicago-library/nothashes',
     install_requires=[
     ],
     tests_require=[
